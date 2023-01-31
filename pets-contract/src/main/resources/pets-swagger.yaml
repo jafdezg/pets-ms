@@ -1,0 +1,62 @@
+openapi: 3.0.2
+info:
+  title: Pets API.
+  description: API to do some with the pets.
+  version: 0.0.1-SNAPSHOT
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: jafernandezg9@gmail.com
+    name: Julio Alberto Fernández Guerrero
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+externalDocs:
+  description: Find out more information.
+  url: https://reflectoring.io/about/
+
+#servers:
+#  - url: https://reflectoring.swagger.io/v2
+
+paths:
+  /pets:
+    get:
+      operationId: getAllPets
+      tags:
+        - Pets
+      summary: Returns all the pets.
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: number
+        description:
+          type: string
