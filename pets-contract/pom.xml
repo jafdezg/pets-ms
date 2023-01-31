@@ -14,7 +14,6 @@
     <artifactId>pets-contract</artifactId>
 
     <properties>
-        <openapi-generator-maven-plugin.version>5.2.1</openapi-generator-maven-plugin.version>
         <service.base.path>com.jafernandezg.pets-ms</service.base.path>
     </properties>
 
@@ -26,11 +25,6 @@
         </dependency>
 
         <dependency>
-            <groupId>jakarta.annotation</groupId>
-            <artifactId>jakarta.annotation-api</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
         </dependency>
@@ -38,6 +32,11 @@
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
         </dependency>
 
         <dependency>
@@ -60,7 +59,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/src/main/resources/pets-swagger.yaml</inputSpec>
+                            <inputSpec>${project.basedir}/src/main/resources/pet-swagger.yaml</inputSpec>
                             <generatorName>spring</generatorName>
                             <modelNameSuffix>Dto</modelNameSuffix>
                             <skipIfSpecIsUnchanged>false</skipIfSpecIsUnchanged>

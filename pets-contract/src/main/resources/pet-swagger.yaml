@@ -31,6 +31,40 @@ paths:
           content:
             application/json:
               schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pet'
+        400:
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /pets/{id}:
+    get:
+      operationId: getAPet
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: number
+          required: true
+          description: The id.
+      tags:
+        - Pets
+      summary: Returns all the pets.
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
                 $ref: '#/components/schemas/Pet'
         400:
           description: Bad Request

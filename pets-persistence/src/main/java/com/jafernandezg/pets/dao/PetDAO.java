@@ -1,5 +1,5 @@
 package com.jafernandezg.pets.dao;
 
-public class PersonDAO {
+public class PetDAO {
 
 }

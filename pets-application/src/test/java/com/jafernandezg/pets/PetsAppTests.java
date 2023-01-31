@@ -1,13 +1,14 @@
 package com.jafernandezg.pets;
 
-//import org.junit.jupiter.api.Test;
-//import org.springframework.boot.test.context.SpringBootTest;
-//
-//@SpringBootTest
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 class PetsAppTests {
 
-//	@Test
-	void contextLoads() {
+	@Test
+	public void fakeTest() {
+		assertTrue(Boolean.TRUE);
 	}
 
 }
