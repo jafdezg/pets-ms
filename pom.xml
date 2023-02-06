@@ -25,8 +25,11 @@
 
         <!-- Dependencies version -->
         <openapi-generator-maven-plugin.version>5.2.1</openapi-generator-maven-plugin.version>
-        <springfox.version>3.0.0</springfox.version>
         <spring-boot-starter-parent.version>2.6.3</spring-boot-starter-parent.version>
+
+        <springfox.version>3.0.0</springfox.version>
+        <lombok.version>1.18.24</lombok.version>
+
         <junit-jupiter-api.version>5.9.2</junit-jupiter-api.version>
     </properties>
 

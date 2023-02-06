@@ -1,37 +1,45 @@
 package com.jafernandezg.pets;
 
+import com.jafernandezg.pets.services.PetService;
 import com.jafernandezg.pets_ms.controllers.PetsApi;
 import com.jafernandezg.pets_ms.dto.PetDto;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
+@Slf4j
+@AllArgsConstructor
 public class PetController implements PetsApi {
+
+    private final PetService petService;
 
     @Override
     public ResponseEntity<List<PetDto>> getAllPets() {
-        PetDto petDto = new PetDto();
-        petDto.setId(BigDecimal.ONE);
-        petDto.setName("Toby");
 
-        PetDto petDto2 = new PetDto();
-        petDto2.setId(BigDecimal.valueOf(2L));
-        petDto2.setName("Pinchitos");
+        log.info("START pets-ms - PetController - getAllPets");
 
-        return ResponseEntity.ok(Arrays.asList(petDto, petDto2));
+        List<PetDto> petDtoList = this.petService.getAllPets();
+
+        log.info(String.format("RESPONSE pets-ms - PetController - getAllPets --> %s ", petDtoList.toString()));
+        log.info("END pets-ms - PetController - getAllPets");
+
+        return ResponseEntity.ok(petDtoList);
     }
 
     @Override
-    public ResponseEntity<PetDto> getAPet(BigDecimal id) {
-        PetDto petDto = new PetDto();
+    public ResponseEntity<PetDto> getAPet(Long id) {
 
-        petDto.setId(BigDecimal.ONE);
-        petDto.setName("Toby");
+        log.info("START pets-ms - PetController - getAPet");
+        log.info(String.format("params --> id: %s ", id));
 
+        PetDto petDto = this.petService.getAPet(id);
+
+        log.info(String.format("RESPONSE pets-ms - PetController - getAPet --> %s ", petDto.toString()));
+        log.info("END pets-ms - PetController - getAPet");
         return ResponseEntity.ok(petDto);
     }
 
