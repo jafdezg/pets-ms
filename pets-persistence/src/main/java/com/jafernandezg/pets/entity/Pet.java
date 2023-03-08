@@ -3,15 +3,16 @@ package com.jafernandezg.pets.entity;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "pets")
 @SequenceGenerator(name = "SQ_PETS", sequenceName = "SQ_PETS", allocationSize = 1)
 @NoArgsConstructor
-public class Pet {
+public class Pet implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 201208261400031206L;
 
     @Id
     @Column(name = "id")
